@@ -1,0 +1,32 @@
+import React, { Component } from "react";
+import SmurfForm from "./SmurfForm";
+import { connect } from "react-redux";
+
+class Smurf extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      updating: false
+    };
+  }
+  render() {
+    return (
+      <div className="smurf-container">
+        <div className="Smurf">
+          <h3>{this.props.smurf.name}</h3>
+          <strong>{this.props.smurf.height} tall</strong>
+          <p>{this.props.smurf.age} smurf years old</p>
+          {this.state.updating && (
+            <SmurfForm smurf={this.props.smurf} submit={this.props.editSmurf} />
+          )}
+        </div>
+      </div>
+    );
+  }
+}
+const mapStateToProps = state => {
+    return {
+        updating: state.updating
+    }
+}
+export default connect(mapStateToProps)(Smurf)

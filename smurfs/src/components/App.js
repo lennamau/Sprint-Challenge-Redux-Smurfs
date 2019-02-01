@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
+import { connect } from 'react-redux'
+import Smurfs from './Smurfs'
+import SmurfForm from './SmurfForm'
+import { addSmurf } from '../actions'
 /*
  to wire this component up you're going to need a few things.
  I'll let you do this part on your own. 
