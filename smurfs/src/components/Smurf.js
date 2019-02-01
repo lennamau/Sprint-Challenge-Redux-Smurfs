@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SmurfForm from "./SmurfForm";
 import { connect } from "react-redux";
+import { deleteSmurf } from '../actions'
 
 class Smurf extends React.Component {
   constructor(props) {
@@ -16,6 +17,10 @@ class Smurf extends React.Component {
           <h3>{this.props.smurf.name}</h3>
           <strong>{this.props.smurf.height} tall</strong>
           <p>{this.props.smurf.age} smurf years old</p>
+          
+        <button className= "delete" onClick={(e, id)=> 
+            this.props.deleteSmurf(e, id)}>X</button>
+        
           {this.state.updating && (
             <SmurfForm smurf={this.props.smurf} submit={this.props.editSmurf} />
           )}
