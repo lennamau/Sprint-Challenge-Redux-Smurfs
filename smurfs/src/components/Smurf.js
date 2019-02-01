@@ -10,6 +10,11 @@ class Smurf extends React.Component {
       updating: false
     };
   }
+  deleteSmurf= (e, id) => {
+      e.preventDefault();
+      this.props.deleteSmurf(id);
+  }
+
   render() {
     return (
       <div className="smurf-container">
@@ -34,4 +39,7 @@ const mapStateToProps = state => {
         updating: state.updating
     }
 }
-export default connect(mapStateToProps)(Smurf)
+
+
+export default connect(mapStateToProps,
+    { deleteSmurf })(Smurf)

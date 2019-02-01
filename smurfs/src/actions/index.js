@@ -49,7 +49,7 @@ export const getSmurfs = () => dispatch => {
 
     export const deleteSmurf = id => dispatch => {
       dispatch({ type: DELETE_SMURF_START })
-    axios
+      axios
       .delete(`${baseURL}/${id}`)
       .then(res => dispatch({ type: DELETE_SMURF_SUCCESS, payload: res.data}))
       .catch(err => dispatch({ type: DELETE_SMURF_FAILURE, payload: err }))
